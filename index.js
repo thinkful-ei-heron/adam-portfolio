@@ -6,6 +6,7 @@ const generateAbout = function () {
 
 const handleAboutClick = function() {
     $('.nav-list').on('click', '.about', e => {
+        $('.fa-social').show();
         generateAbout();
     })
 }
@@ -19,14 +20,15 @@ const generateProjects = function () {
         <li class='techs'><i class="fab fa-js fa-3x"></i></span></li>
     </ul>
     <div class='project-links'>
-        <a class='pro-link quiz-live' href='https://thinkful-ei-heron.github.io/Zac-and-Adam_Quiz-App/' target='_blank'>Live</a>
-        <a class='pro-link quiz-repo' href='https://github.com/thinkful-ei-heron/Zac-and-Adam_Quiz-App' target='_blank'>Repo</a>
+        <a class='pro-link-text quiz-live' href='https://thinkful-ei-heron.github.io/Zac-and-Adam_Quiz-App/' target='_blank'>Live</a>
+        <a class='pro-link-text quiz-repo' href='https://github.com/thinkful-ei-heron/Zac-and-Adam_Quiz-App' target='_blank'>Repo</a>
     </div>`
     $('.main-content').html(projectsHtml);
 }
 
 const handleProjectsClick = function () {
     $('.nav-list').on('click', '.projects', e => {
+        $('.fa-social').show();
         generateProjects();
     })
 }
@@ -36,10 +38,10 @@ const generateContact = function () {
     <p class='contact-text'>Please feel free to contact me with any questions or inqueries. I'd love to hear from you!</p>
     <ul class='contact-list'>
         <li class='con-link phone'>
-            <a href='tel:9376819305'>937-681-9305</a>
+            <a class='con-text' href='tel:9376819305' style="text-decoration:none">937-681-9305</a>
         </li>
         <li class='con-link email'>
-            <a href='mailto:adamnewhouser@gmail.com'>adamnewhouser@gmail.com</a>
+            <a class='con-text' href='mailto:adamnewhouser@gmail.com' style="text-decoration:none">adamnewhouser@gmail.com</a>
         </li>
         <li class='con-link github'>
             <a href='https://github.com/AdamNewhouser/' target='_blank'>
@@ -57,14 +59,21 @@ const generateContact = function () {
 
 const handleContactClick = function () {
     $('.nav-list').on('click', '.contact', e => {
+        $('.fa-social').hide();
         generateContact();
     })
 }
 
+const handleNameClick = function () {
+    $('.hero-content-wrap').on('click', '.name', e => {
+        location.reload();
+    })
+}
 
 const docReady = function () {
     handleAboutClick();
     handleProjectsClick();
     handleContactClick();
+    handleNameClick();
 }
 $(docReady);
